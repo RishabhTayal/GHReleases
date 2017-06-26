@@ -1,0 +1,57 @@
+fastlane_version "2.41.0"
+
+default_platform :ios
+
+ENV['DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS'] = '-t DAV'
+ENV['FASTLANE_ITUNES_TRANSPORTER_USE_SHELL_SCRIPT'] = '1'
+
+platform :ios do
+  before_all do
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    cocoapods
+    increment_build_number
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  desc "This will also make sure the profile is up to date"
+  lane :beta do
+    match(type: "appstore") # more information: https://codesigning.guide
+    gym(scheme: 'GHReleases') # Build your app - more options available
+    pilot(    
+      # username: 'sywconnectadmin@searshc.com',
+      beta_app_description: "Test build",
+      changelog: "Change log", 
+      beta_app_feedback_email: "rtayal11@gmail.com",
+      skip_waiting_for_build_processing: false,
+      distribute_external: true
+    )
+  end
+
+  desc "Deploy a new version to the App Store"
+  lane :release do
+    # match(type: "appstore")
+    # snapshot
+    gym # Build your app - more options available
+    deliver(force: true)
+    # frameit
+  end
+
+  lane :upload_itunes_metadata do
+    deliver(skip_binary_upload: true, force: true)
+  end
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end

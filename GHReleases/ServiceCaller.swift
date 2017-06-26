@@ -23,21 +23,6 @@ class ServiceCaller: NSObject {
         let parser = MWFeedParser.init(feedURL: feedUrl)
         parser?.delegate = self
         parser?.parse()
-        
-        
-//        let request = URLRequest.init(url: URL.init(string: "https://github.com/MisterTea/EternalTCP/releases.atom")!)
-//        URLSession.shared.dataTask(with: request) { (d, r, e) in
-//            if let data = d {
-//                do {
-//                    let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
-//                    completion(json, nil)
-//                } catch {
-//                    completion(nil, error)
-//                }
-//            } else {
-//                completion(nil, e)
-//            }
-//        }.resume()
     }
 }
 
