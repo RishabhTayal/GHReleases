@@ -33,9 +33,10 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = items[indexPath.row].title
-        cell?.detailTextLabel?.text = items[indexPath.row].summary
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ReleasesTableViewCell
+//        cell?.textLabel?.text = items[indexPath.row].title
+//        cell?.detailTextLabel?.text = items[indexPath.row].summary
+        cell.config(item: items[indexPath.row])
+        return cell
     }
 }
