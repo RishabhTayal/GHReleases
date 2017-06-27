@@ -15,13 +15,21 @@ class RepositoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//
+//        var repo = Repository.instance(dict: ["owner": "fastlane", "name": "fastlane"])
+//        repositories.append(repo)
+//        repo = Repository.instance(dict: ["owner": "danger", "name": "danger"])
+//        repositories.append(repo)
+//        repo = Repository.instance(dict: ["owner": "RishabhTayal", "name": "GHReleases"])
+//        repositories.append(repo)
         
-        var repo = Repository.init(dict: ["owner": "fastlane", "name": "fastlane"])
-        repositories.append(repo)
-        repo = Repository.init(dict: ["owner": "danger", "name": "danger"])
-        repositories.append(repo)
-        repo = Repository.init(dict: ["owner": "RishabhTayal", "name": "GHReleases"])
-        repositories.append(repo)
+        if let repos = UserDefaults.standard.array(forKey: UserDefaultsKey.Repositories) {
+            for repoObj in repos {
+                let repo = Repository.instance(dict: repoObj as! [String : Any])
+                repositories.append(repo)
+            }
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,6 +81,9 @@ extension RepositoriesViewController: UITableViewDataSource, UITableViewDelegate
 extension RepositoriesViewController: AddRepositoryVCDelegate {
     func addRepositoryVCDidAddRepo(repo: Repository) {
         self.repositories.append(repo)
+        var repos = UserDefaults.standard.array(forKey: UserDefaultsKey.Repositories) ?? []
+        repos.append(repo.toJSON())
+        UserDefaults.standard.set(repos, forKey: UserDefaultsKey.Repositories)
         self.tableView.reloadData()
     }
 }

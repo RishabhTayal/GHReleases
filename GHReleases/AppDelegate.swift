@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        let repo = Repository.init(dict: ["owner": "fastlane", "name": "fastlane"])
+        let repo = Repository.instance(dict: ["owner": "fastlane", "name": "fastlane"])
         fetchData(repository: repo) { (d, e) in
             DispatchQueue.main.async {
                 self.triggerLocalNotification()

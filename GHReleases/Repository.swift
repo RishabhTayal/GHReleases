@@ -7,14 +7,23 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class Repository {
+class Repository: Mappable {
     
     var owner: String!
     var name: String!
     
-    init(dict: [String: Any]) {
-        self.owner = dict["owner"] as! String
-        self.name = dict["name"] as! String
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        self.owner <- map["owner"]
+        self.name <- map["name"]
+    }
+    
+    class func instance(dict: [String: Any]) -> Repository {
+        return Mapper<Repository>().map(JSON: dict)!
     }
 }
