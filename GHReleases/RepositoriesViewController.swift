@@ -56,6 +56,18 @@ extension RepositoriesViewController: UITableViewDataSource, UITableViewDelegate
         releasesVC.repository = repo
         self.navigationController?.pushViewController(releasesVC, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let action = UITableViewRowAction.init(style: UITableViewRowActionStyle.destructive, title: "Delete") { (action, indexPath) in
+            self.repositories.remove(at: indexPath.row)
+            self.tableView.reloadSections([0], with: .automatic)
+        }
+        return [action]
+    }
 }
 
 extension RepositoriesViewController: AddRepositoryVCDelegate {

@@ -76,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				69EC2F1E1F017AAF004B9D96 /* Main.storyboard */,
-				69AFDEEA1F01A72900B54545 /* GoogleService-Info.plist */,
 				69EC2F211F017AAF004B9D96 /* Assets.xcassets */,
 				69EC2F231F017AAF004B9D96 /* LaunchScreen.storyboard */,
 				69EC2F261F017AAF004B9D96 /* Info.plist */,
