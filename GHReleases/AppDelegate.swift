@@ -28,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        fetchData(repository: "fastlane/fastlane") { (d, e) in
+        let repo = Repository.init(dict: ["owner": "fastlane", "name": "fastlane"])
+        fetchData(repository: repo) { (d, e) in
             DispatchQueue.main.async {
                 self.triggerLocalNotification()
             }
@@ -36,8 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func fetchData(repository: String, completion: @escaping ServiceCaller.CompletionBlock) {
-        ServiceCaller().makeCall(repository: repository) { (items, error) in
+    func fetchData(repository: Repository, completion: @escaping ServiceCaller.CompletionBlock) {
+        ServiceCaller().makeCall(repository: repository.owner + "/" + repository.name) { (items, error) in
             completion(items, error)
         }
     }

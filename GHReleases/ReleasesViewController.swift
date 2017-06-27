@@ -14,17 +14,17 @@ class ReleasesViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var repository: String = ""
+    var repository: Repository?
     var items: [MWFeedItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = repository
+        self.title = repository?.name
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 64
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.fetchData(repository: repository) { (d, error) in
+        appDelegate.fetchData(repository: repository!) { (d, error) in
             self.items = d!
             DispatchQueue.main.async {
                 self.tableView.reloadData()

@@ -10,11 +10,16 @@ import UIKit
 
 class RepositoriesViewController: UIViewController {
     
-    var repositories: [String] = ["fastlane/fastlane", "danger/danger"]
+    var repositories: [Repository] = []
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var repo = Repository.init(dict: ["owner": "fastlane", "name": "fastlane"])
+        repositories.append(repo)
+        repo = Repository.init(dict: ["owner": "danger", "name": "danger"])
+        repositories.append(repo)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -22,6 +27,12 @@ class RepositoriesViewController: UIViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
         }
+    }
+    
+    @IBAction func addTapped(_ sender: Any) {
+        let addRepoVC = storyboard?.instantiateViewController(withIdentifier: R.storyboard.main.addRepositoryViewController.identifier) as! AddRepositoryViewController
+        addRepoVC.delegate = self
+        self.present(UINavigationController.init(rootViewController: addRepoVC), animated: true, completion: nil)
     }
 }
 
@@ -32,7 +43,8 @@ extension RepositoriesViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.cell.identifier)
-        cell?.textLabel?.text = repositories[indexPath.row]
+        let repo = repositories[indexPath.row]
+        cell?.textLabel?.text = repo.owner + "/" + repo.name
         return cell!
     }
     
@@ -41,5 +53,12 @@ extension RepositoriesViewController: UITableViewDataSource, UITableViewDelegate
         let releasesVC = storyboard?.instantiateViewController(withIdentifier: R.storyboard.main.releasesViewController.identifier) as! ReleasesViewController
         releasesVC.repository = repo
         self.navigationController?.pushViewController(releasesVC, animated: true)
+    }
+}
+
+extension RepositoriesViewController: AddRepositoryVCDelegate {
+    func addRepositoryVCDidAddRepo(repo: Repository) {
+        self.repositories.append(repo)
+        self.tableView.reloadData()
     }
 }

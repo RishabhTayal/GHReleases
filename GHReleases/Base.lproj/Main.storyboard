@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQ4-h9-Icp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="302" y="-352"/>
+            <point key="canvasLocation" x="-785" y="36"/>
         </scene>
         <!--Repositories View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -74,13 +74,79 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TUe-ED-brd" secondAttribute="bottom" id="po5-Gi-5WZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UfT-dv-RE8"/>
+                    <navigationItem key="navigationItem" id="UfT-dv-RE8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qET-fd-bdV">
+                            <connections>
+                                <action selector="addTapped:" destination="BYZ-38-t0r" id="vqS-dW-YWM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="TUe-ED-brd" id="ovh-Rp-9rb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Add Repository View Controller-->
+        <scene sceneID="ZzU-I8-hT3">
+            <objects>
+                <viewController storyboardIdentifier="AddRepositoryViewController" id="eov-ly-k68" customClass="AddRepositoryViewController" customModule="GHReleases" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g8k-rr-hA1"/>
+                        <viewControllerLayoutGuide type="bottom" id="WjT-v4-04e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lZC-vY-qKS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xNI-kI-Vyf">
+                                <rect key="frame" x="139" y="70" width="97" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UZR-h9-6ob">
+                                <rect key="frame" x="139" y="125" width="97" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uS7-4h-ztV">
+                                <rect key="frame" x="172" y="186" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="eov-ly-k68" eventType="touchUpInside" id="TuS-g6-JRR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UZR-h9-6ob" firstAttribute="top" secondItem="xNI-kI-Vyf" secondAttribute="bottom" constant="25" id="1gT-81-Tfp"/>
+                            <constraint firstItem="uS7-4h-ztV" firstAttribute="centerX" secondItem="UZR-h9-6ob" secondAttribute="centerX" id="4fN-kh-cWY"/>
+                            <constraint firstItem="xNI-kI-Vyf" firstAttribute="leading" secondItem="lZC-vY-qKS" secondAttribute="leadingMargin" constant="123" id="5IM-px-yL5"/>
+                            <constraint firstItem="xNI-kI-Vyf" firstAttribute="top" secondItem="g8k-rr-hA1" secondAttribute="bottom" constant="50" id="Q1L-RE-yYU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UZR-h9-6ob" secondAttribute="trailing" constant="123" id="Ufz-vO-7Gd"/>
+                            <constraint firstItem="UZR-h9-6ob" firstAttribute="leading" secondItem="lZC-vY-qKS" secondAttribute="leadingMargin" constant="123" id="YbE-wa-Ya2"/>
+                            <constraint firstItem="uS7-4h-ztV" firstAttribute="top" secondItem="UZR-h9-6ob" secondAttribute="bottom" constant="31" id="ax5-JI-dKa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xNI-kI-Vyf" secondAttribute="trailing" constant="123" id="qYN-0L-n36"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VHs-Vl-Ufd">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nh8-RZ-arY">
+                            <connections>
+                                <action selector="cancelTapped:" destination="eov-ly-k68" id="u1q-zh-jKp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ownerNameTF" destination="xNI-kI-Vyf" id="kxi-UQ-GyP"/>
+                        <outlet property="repoNameTF" destination="UZR-h9-6ob" id="AP6-aD-aYH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gWX-3a-s4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1406" y="-533"/>
         </scene>
         <!--Releases View Controller-->
         <scene sceneID="O8t-br-Njw">
@@ -172,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kW-sX-PT1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1361" y="36"/>
+            <point key="canvasLocation" x="1534" y="152"/>
         </scene>
     </scenes>
 </document>
