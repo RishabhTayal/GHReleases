@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6931133D1F02BC0F00475318 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6931133C1F02BC0F00475318 /* AppHelper.swift */; };
+		693113401F02C58300475318 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6931133F1F02C58300475318 /* Repository.swift */; };
+		693113421F02C64900475318 /* AddRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693113411F02C64900475318 /* AddRepositoryViewController.swift */; };
+		69421B901F01B3A7008588FB /* ReleasesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69421B8F1F01B3A7008588FB /* ReleasesTableViewCell.swift */; };
+		69A2084C1F02B5050085598C /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A2084B1F02B5050085598C /* RepositoriesViewController.swift */; };
+		69A208511F02B65C0085598C /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A208501F02B5EB0085598C /* R.generated.swift */; };
 		69AF48251F017B1900829B29 /* ServiceCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AF48241F017B1900829B29 /* ServiceCaller.swift */; };
 		69AFDEEB1F01A72900B54545 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69AFDEEA1F01A72900B54545 /* GoogleService-Info.plist */; };
 		69EC2F1B1F017AAF004B9D96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EC2F1A1F017AAF004B9D96 /* AppDelegate.swift */; };
-		69EC2F1D1F017AAF004B9D96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EC2F1C1F017AAF004B9D96 /* ViewController.swift */; };
+		69EC2F1D1F017AAF004B9D96 /* ReleasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EC2F1C1F017AAF004B9D96 /* ReleasesViewController.swift */; };
 		69EC2F201F017AAF004B9D96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69EC2F1E1F017AAF004B9D96 /* Main.storyboard */; };
 		69EC2F221F017AAF004B9D96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69EC2F211F017AAF004B9D96 /* Assets.xcassets */; };
 		69EC2F251F017AAF004B9D96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69EC2F231F017AAF004B9D96 /* LaunchScreen.storyboard */; };
@@ -21,12 +27,18 @@
 		17A23B507F0B87DFF0E45161 /* Pods_GHReleases.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GHReleases.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E97E5DC5102BB0B5A072AA1 /* Pods-GHReleases.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHReleases.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GHReleases/Pods-GHReleases.debug.xcconfig"; sourceTree = "<group>"; };
 		47E0282D206C61948EA5C4EB /* Pods-GHReleases.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHReleases.release.xcconfig"; path = "Pods/Target Support Files/Pods-GHReleases/Pods-GHReleases.release.xcconfig"; sourceTree = "<group>"; };
+		6931133C1F02BC0F00475318 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
+		6931133F1F02C58300475318 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		693113411F02C64900475318 /* AddRepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRepositoryViewController.swift; sourceTree = "<group>"; };
+		69421B8F1F01B3A7008588FB /* ReleasesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleasesTableViewCell.swift; sourceTree = "<group>"; };
+		69A2084B1F02B5050085598C /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
+		69A208501F02B5EB0085598C /* R.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		69AF48231F017ACF00829B29 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		69AF48241F017B1900829B29 /* ServiceCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCaller.swift; sourceTree = "<group>"; };
 		69AFDEEA1F01A72900B54545 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		69EC2F171F017AAF004B9D96 /* GHReleases.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHReleases.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69EC2F1A1F017AAF004B9D96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		69EC2F1C1F017AAF004B9D96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		69EC2F1C1F017AAF004B9D96 /* ReleasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleasesViewController.swift; sourceTree = "<group>"; };
 		69EC2F1F1F017AAF004B9D96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69EC2F211F017AAF004B9D96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69EC2F241F017AAF004B9D96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +66,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6931133E1F02C57800475318 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6931133F1F02C58300475318 /* Repository.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		69AF48261F017B2000829B29 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				69AF48231F017ACF00829B29 /* README.md */,
+				69A208501F02B5EB0085598C /* R.generated.swift */,
 				69EC2F191F017AAF004B9D96 /* GHReleases */,
 				69EC2F181F017AAF004B9D96 /* Products */,
 				5FA9FD6DBFAF353D4A1F5DC6 /* Pods */,
@@ -89,7 +110,12 @@
 			isa = PBXGroup;
 			children = (
 				69EC2F1A1F017AAF004B9D96 /* AppDelegate.swift */,
-				69EC2F1C1F017AAF004B9D96 /* ViewController.swift */,
+				6931133C1F02BC0F00475318 /* AppHelper.swift */,
+				6931133E1F02C57800475318 /* Models */,
+				69A2084B1F02B5050085598C /* RepositoriesViewController.swift */,
+				693113411F02C64900475318 /* AddRepositoryViewController.swift */,
+				69EC2F1C1F017AAF004B9D96 /* ReleasesViewController.swift */,
+				69421B8F1F01B3A7008588FB /* ReleasesTableViewCell.swift */,
 				69AF48241F017B1900829B29 /* ServiceCaller.swift */,
 				69AF48261F017B2000829B29 /* Supporting Files */,
 			);
@@ -112,6 +138,7 @@
 			buildConfigurationList = 69EC2F291F017AAF004B9D96 /* Build configuration list for PBXNativeTarget "GHReleases" */;
 			buildPhases = (
 				257800712639A521B65D08E0 /* [CP] Check Pods Manifest.lock */,
+				69A2084D1F02B5820085598C /* R.swift */,
 				69EC2F131F017AAF004B9D96 /* Sources */,
 				69EC2F141F017AAF004B9D96 /* Frameworks */,
 				69EC2F151F017AAF004B9D96 /* Resources */,
@@ -212,6 +239,20 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		69A2084D1F02B5820085598C /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
+		};
 		7B759C67921C80FEE707B91B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -234,9 +275,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69EC2F1D1F017AAF004B9D96 /* ViewController.swift in Sources */,
+				69EC2F1D1F017AAF004B9D96 /* ReleasesViewController.swift in Sources */,
+				69A2084C1F02B5050085598C /* RepositoriesViewController.swift in Sources */,
+				69421B901F01B3A7008588FB /* ReleasesTableViewCell.swift in Sources */,
+				693113401F02C58300475318 /* Repository.swift in Sources */,
+				693113421F02C64900475318 /* AddRepositoryViewController.swift in Sources */,
 				69EC2F1B1F017AAF004B9D96 /* AppDelegate.swift in Sources */,
+				6931133D1F02BC0F00475318 /* AppHelper.swift in Sources */,
 				69AF48251F017B1900829B29 /* ServiceCaller.swift in Sources */,
+				69A208511F02B65C0085598C /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,7 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = CEBY93VF85;
 				INFOPLIST_FILE = "GHReleases/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -395,7 +442,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = CEBY93VF85;
 				INFOPLIST_FILE = "GHReleases/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

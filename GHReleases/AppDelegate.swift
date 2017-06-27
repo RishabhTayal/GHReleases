@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        
         let center = UNUserNotificationCenter.current()
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
         center.requestAuthorization(options: options) { (s, e) in
@@ -26,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        fetchData { (d, e) in
+        let repo = Repository.init(dict: ["owner": "fastlane", "name": "fastlane"])
+        fetchData(repository: repo) { (d, e) in
             DispatchQueue.main.async {
                 self.triggerLocalNotification()
             }
@@ -34,9 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func fetchData(completion: @escaping ServiceCaller.CompletionBlock) {
-        ServiceCaller().makeCall { (result, error) in
-            completion(result, error)
+    func fetchData(repository: Repository, completion: @escaping ServiceCaller.CompletionBlock) {
+        ServiceCaller().makeCall(repository: repository.owner + "/" + repository.name) { (items, error) in
+            completion(items, error)
         }
     }
     
