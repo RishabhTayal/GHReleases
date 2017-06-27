@@ -23,7 +23,7 @@ class ReleasesTableViewCell: UITableViewCell {
     
     func config(item: MWFeedItem) {
         self.titleLabel.text = item.title
-        self.summaryLabel.text = item.summary
+        self.summaryLabel.attributedText = item.summary.stringFromHtml()
         self.releaseDateLabel.text = item.updated.description
         self.authorLabel.text = item.author
     }
