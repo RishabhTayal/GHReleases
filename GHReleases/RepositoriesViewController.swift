@@ -20,6 +20,8 @@ class RepositoriesViewController: UIViewController {
         repositories.append(repo)
         repo = Repository.init(dict: ["owner": "danger", "name": "danger"])
         repositories.append(repo)
+        repo = Repository.init(dict: ["owner": "RishabhTayal", "name": "GHReleases"])
+        repositories.append(repo)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,6 +55,18 @@ extension RepositoriesViewController: UITableViewDataSource, UITableViewDelegate
         let releasesVC = storyboard?.instantiateViewController(withIdentifier: R.storyboard.main.releasesViewController.identifier) as! ReleasesViewController
         releasesVC.repository = repo
         self.navigationController?.pushViewController(releasesVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let action = UITableViewRowAction.init(style: UITableViewRowActionStyle.destructive, title: "Delete") { (action, indexPath) in
+            self.repositories.remove(at: indexPath.row)
+            self.tableView.reloadSections([0], with: .automatic)
+        }
+        return [action]
     }
 }
 
