@@ -8,19 +8,22 @@ PODS:
     - MWFeedParser/NSString+HTML
   - MWFeedParser/NSDate+InternetDateTime (1.0.1)
   - MWFeedParser/NSString+HTML (1.0.1)
+  - ObjectMapper (2.2.7)
   - R.swift (3.3.0):
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
 
 DEPENDENCIES:
   - MWFeedParser
+  - ObjectMapper
   - R.swift
 
 SPEC CHECKSUMS:
   MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
+  ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
   R.swift: bde9704d50ff36820f49e266bc88ef545e1e9b36
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
 
-PODFILE CHECKSUM: a176ad53e3eb99217ada985bb632afe644ead60b
+PODFILE CHECKSUM: c0ba69497fa0d2e021327d71ba94f3e0d42eb4bf
 
 COCOAPODS: 1.2.1

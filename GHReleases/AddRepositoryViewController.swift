@@ -30,7 +30,7 @@ class AddRepositoryViewController: UIViewController {
     }
     
     @IBAction func addTapped(_ sender: Any) {
-        let repo = Repository(dict: ["owner": ownerNameTF.text, "name": repoNameTF.text])
+        let repo = Repository.instance(dict: ["owner": ownerNameTF.text, "name": repoNameTF.text])
         if let delegate = delegate {
             delegate.addRepositoryVCDidAddRepo(repo: repo)
         }
