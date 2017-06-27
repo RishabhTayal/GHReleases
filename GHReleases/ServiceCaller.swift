@@ -16,10 +16,10 @@ class ServiceCaller: NSObject {
     var completionBlock: CompletionBlock!
     var items: [MWFeedItem] = []
     
-    func makeCall(completion: @escaping CompletionBlock) {
+    func makeCall(repository: String, completion: @escaping CompletionBlock) {
         self.completionBlock = completion
         self.items = []
-        let feedUrl = URL.init(string: "https://github.com/MisterTea/EternalTCP/releases.atom")!
+        let feedUrl = URL.init(string: "https://github.com/" + repository + "/releases.atom")!
         let parser = MWFeedParser.init(feedURL: feedUrl)
         parser?.delegate = self
         parser?.parse()
