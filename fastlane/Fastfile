@@ -22,8 +22,9 @@ platform :ios do
       beta_app_description: "Test build",
       changelog: "Change log", 
       beta_app_feedback_email: "rtayal11@gmail.com",
-      skip_waiting_for_build_processing: false,
-      distribute_external: true
+      # skip_waiting_for_build_processing: false,
+      # distribute_external: true,
+      # groups: 'External Testers'
     )
   end
 
