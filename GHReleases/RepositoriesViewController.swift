@@ -20,6 +20,8 @@ class RepositoriesViewController: UIViewController {
         repositories.append(repo)
         repo = Repository.init(dict: ["owner": "danger", "name": "danger"])
         repositories.append(repo)
+        repo = Repository.init(dict: ["owner": "RishabhTayal", "name": "GHReleases"])
+        repositories.append(repo)
     }
     
     override func viewDidAppear(_ animated: Bool) {
