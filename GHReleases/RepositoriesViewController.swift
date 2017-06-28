@@ -15,7 +15,12 @@ class RepositoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//
+        
+        self.title = "Repositories"
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
+        
 //        var repo = Repository.instance(dict: ["owner": "fastlane", "name": "fastlane"])
 //        repositories.append(repo)
 //        repo = Repository.instance(dict: ["owner": "danger", "name": "danger"])
@@ -72,6 +77,7 @@ extension RepositoriesViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let action = UITableViewRowAction.init(style: UITableViewRowActionStyle.destructive, title: "Delete") { (action, indexPath) in
             self.repositories.remove(at: indexPath.row)
+            UserDefaults.standard.set(self.repositories.toJSON(), forKey: UserDefaultsKey.Repositories)
             self.tableView.reloadSections([0], with: .automatic)
         }
         return [action]
