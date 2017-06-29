@@ -14,12 +14,14 @@ class ReleasesViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var repository: Repository?
+    var repository: Repository!
     var items: [MWFeedItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = repository?.name
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action, target: self, action: #selector(self.openRepoInBrowserTapped(_:)))
+        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 64
         
@@ -30,6 +32,11 @@ class ReleasesViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func openRepoInBrowserTapped(_ sender: Any) {
+        let safariVC = SFSafariViewController.init(url: URL.init(string: "https://www.github.com/" + (repository?.owner)! + "/" + (repository?.name)!)!)
+        self.present(safariVC, animated: true, completion: nil)
     }
 }
 

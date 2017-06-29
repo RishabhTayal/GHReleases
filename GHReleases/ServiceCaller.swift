@@ -22,6 +22,7 @@ class ServiceCaller: NSObject {
         let feedUrl = URL.init(string: "https://github.com/" + repository + "/releases.atom")!
         let parser = MWFeedParser.init(feedURL: feedUrl)
         parser?.delegate = self
+        parser?.feedParseType = ParseTypeFull
         parser?.parse()
     }
 }

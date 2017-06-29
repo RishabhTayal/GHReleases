@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import MWFeedParser
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,12 +29,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        let repo = Repository.instance(dict: ["owner": "fastlane", "name": "fastlane"])
-        fetchData(repository: repo) { (d, e) in
-            DispatchQueue.main.async {
-                self.triggerLocalNotification()
+        if var repos = UserDefaults.standard.array(forKey: UserDefaultsKey.Repositories) {
+            var apiCompletionCount = 0
+            for repoObj in repos {
+                let repo = Repository.instance(dict: repoObj as! [String : Any])
+                fetchData(repository: repo) { (d, e) in
+                    DispatchQueue.main.async {
+                        apiCompletionCount += 1
+                        if repo.version != d?.first?.title {
+                            self.triggerLocalNotification(repository: repo, version: (d?.first?.title)!)
+                        }
+                        repo.version = d?.first?.title
+                        
+                        if apiCompletionCount == repos.count {
+                            completionHandler(UIBackgroundFetchResult.newData)
+                        }
+                    }
+                }
             }
-            completionHandler(UIBackgroundFetchResult.newData)
+        } else {
+            completionHandler(.noData)
         }
     }
     
@@ -43,10 +58,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func triggerLocalNotification() {
+    func triggerLocalNotification(repository: Repository, version: String) {
         let content = UNMutableNotificationContent()
-        content.title = "Don't forget"
-        content.body = "Buy Milk"
+        content.title = "New release available"
+        content.subtitle = version
+        content.body = repository.owner + " released a new release for " + repository.name
         content.sound = .default()
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)

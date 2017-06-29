@@ -13,6 +13,7 @@ class Repository: Mappable {
     
     var owner: String!
     var name: String!
+    var version: String!
     
     required init?(map: Map) {
         
@@ -21,6 +22,7 @@ class Repository: Mappable {
     func mapping(map: Map) {
         self.owner <- map["owner"]
         self.name <- map["name"]
+        self.version <- map["version"]
     }
     
     class func instance(dict: [String: Any]) -> Repository {

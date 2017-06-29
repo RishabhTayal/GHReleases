@@ -1,4 +1,7 @@
 PODS:
+  - FormatterKit/Resources (1.8.2)
+  - FormatterKit/TimeIntervalFormatter (1.8.2):
+    - FormatterKit/Resources
   - MWFeedParser (1.0.1):
     - MWFeedParser/FeedParser (= 1.0.1)
     - MWFeedParser/NSDate+InternetDateTime (= 1.0.1)
@@ -14,16 +17,18 @@ PODS:
   - R.swift.Library (3.0.2)
 
 DEPENDENCIES:
+  - FormatterKit/TimeIntervalFormatter
   - MWFeedParser
   - ObjectMapper
   - R.swift
 
 SPEC CHECKSUMS:
+  FormatterKit: 4b8f29acc9b872d5d12a63efb560661e8f2e1b98
   MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
   ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
   R.swift: bde9704d50ff36820f49e266bc88ef545e1e9b36
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
 
-PODFILE CHECKSUM: c0ba69497fa0d2e021327d71ba94f3e0d42eb4bf
+PODFILE CHECKSUM: 3488f450a4d2771c6df2f1a7990f0320799d9d22
 
 COCOAPODS: 1.2.1

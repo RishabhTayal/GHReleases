@@ -8,4 +8,5 @@ target :GHReleases do
 	pod 'MWFeedParser'
     pod 'R.swift'
     pod 'ObjectMapper'
+    pod 'FormatterKit/TimeIntervalFormatter'
 end

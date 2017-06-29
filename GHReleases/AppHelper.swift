@@ -22,3 +22,12 @@ extension String {
         return nil
     }
 }
+
+
+extension Array where Element: Equatable {
+    mutating func removeObject(_ object: Element) {
+        if let index = self.index(of: object) {
+            self.remove(at: index)
+        }
+    }
+}
