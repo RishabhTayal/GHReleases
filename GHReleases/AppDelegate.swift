@@ -28,6 +28,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    //TODO: implement tap handle
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
+//        switch response.actionIdentifier {
+//        case UNNotificationDismissActionIdentifier:
+//            break
+//        case UNNotificationDefaultActionIdentifier:
+//            print("opened" + response.description)
+//            break
+//        default: break
+//        }
+//        completionHandler()
+//    }
+    
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if let repos = UserDefaults.standard.array(forKey: UserDefaultsKey.Repositories) {
             var apiCompletionCount = 0
@@ -40,8 +53,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             self.triggerLocalNotification(repository: repo, version: (d?.first?.title)!)
                             repo.version = d?.first?.title
                             UserDefaults.storeRepo(repository: repo)
+                        } else {
+                            #if DEBUG
+                                self.triggerLocalNotification(repository: repo, version: (d?.first?.title)!)
+                            #endif
                         }
-                        
                         if apiCompletionCount == repos.count {
                             completionHandler(UIBackgroundFetchResult.newData)
                         }
@@ -65,6 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         content.subtitle = version
         content.body = repository.owner + " released a new release for " + repository.name
         content.sound = .default()
+        content.userInfo = repository.toJSON()
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let identifier = repository.owner + "/" + repository.name

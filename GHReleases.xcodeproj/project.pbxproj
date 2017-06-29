@@ -426,6 +426,7 @@
 				DEVELOPMENT_TEAM = CEBY93VF85;
 				INFOPLIST_FILE = "GHReleases/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtayal.GHReleases;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4e05170e-c3ef-453a-8008-5f7456ae3a78";
@@ -446,6 +447,7 @@
 				DEVELOPMENT_TEAM = CEBY93VF85;
 				INFOPLIST_FILE = "GHReleases/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DRELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtayal.GHReleases;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1c37ff2d-db13-4e4d-a998-5e87c4834554";
