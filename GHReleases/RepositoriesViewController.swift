@@ -87,9 +87,7 @@ extension RepositoriesViewController: UITableViewDataSource, UITableViewDelegate
 extension RepositoriesViewController: AddRepositoryVCDelegate {
     func addRepositoryVCDidAddRepo(repo: Repository) {
         self.repositories.append(repo)
-        var repos = UserDefaults.standard.array(forKey: UserDefaultsKey.Repositories) ?? []
-        repos.append(repo.toJSON())
-        UserDefaults.standard.set(repos, forKey: UserDefaultsKey.Repositories)
+        UserDefaults.storeRepo(repository: repo)
         self.tableView.reloadData()
     }
 }
