@@ -38,8 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         apiCompletionCount += 1
                         if repo.version != d?.first?.title {
                             self.triggerLocalNotification(repository: repo, version: (d?.first?.title)!)
+                            repo.version = d?.first?.title
+                            UserDefaults.storeRepo(repository: repo)
                         }
-                        repo.version = d?.first?.title
                         
                         if apiCompletionCount == repos.count {
                             completionHandler(UIBackgroundFetchResult.newData)
