@@ -8,6 +8,7 @@
 
 import UIKit
 import MWFeedParser
+import FormatterKit
 
 class ReleasesTableViewCell: UITableViewCell {
 
@@ -24,7 +25,8 @@ class ReleasesTableViewCell: UITableViewCell {
     func config(item: MWFeedItem) {
         self.titleLabel.text = item.title
         self.summaryLabel.attributedText = item.summary.stringFromHtml()
-        self.releaseDateLabel.text = item.updated.description
+        let formatter = TTTTimeIntervalFormatter()
+        self.releaseDateLabel.text = formatter.stringForTimeInterval(from: item.updated, to: Date())
         self.authorLabel.text = item.author
     }
 }

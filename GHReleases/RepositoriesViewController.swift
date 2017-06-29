@@ -34,7 +34,7 @@ class RepositoriesViewController: UIViewController {
                 repositories.append(repo)
             }
         }
-        
+        self.tableView.tableFooterView = UIView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
