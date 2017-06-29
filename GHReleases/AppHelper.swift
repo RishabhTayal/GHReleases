@@ -33,11 +33,13 @@ extension Array where Element: Equatable {
 
 extension UserDefaults {
     class func storeRepo(repository: Repository) {
-        if var defaults = UserDefaults.standard.array(forKey: UserDefaultsKey.Repositories) {
+        if var defaults = UserDefaults.standard.array(forKey: UserDefaultsKey.Repositories), defaults.count > 0 {
             for (index, repo) in defaults.enumerated() {
                 let repoObj = Repository.instance(dict: repo as! [String : Any])
                 if repoObj.owner == repository.owner && repoObj.name == repository.name {
-                    defaults.insert(repository, at: index)
+                    defaults[index] = repository.toJSON()
+                } else {
+                    defaults.append(repository.toJSON())
                 }
             }
             UserDefaults.standard.set(defaults, forKey: UserDefaultsKey.Repositories)

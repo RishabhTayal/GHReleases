@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        if var repos = UserDefaults.standard.array(forKey: UserDefaultsKey.Repositories) {
+        if let repos = UserDefaults.standard.array(forKey: UserDefaultsKey.Repositories) {
             var apiCompletionCount = 0
             for repoObj in repos {
                 let repo = Repository.instance(dict: repoObj as! [String : Any])
@@ -67,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         content.sound = .default()
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        let identifier = "UYLLocalNotification"
+        let identifier = repository.owner + "/" + repository.name
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { (e) in
             
