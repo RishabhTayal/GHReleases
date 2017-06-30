@@ -60,6 +60,7 @@ extension RepositoriesViewController: UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.cell.identifier)
         let repo = repositories[indexPath.row]
         cell?.textLabel?.text = repo.owner + "/" + repo.name
+        cell?.detailTextLabel?.text = "Release: " + repo.version
         return cell!
     }
     
