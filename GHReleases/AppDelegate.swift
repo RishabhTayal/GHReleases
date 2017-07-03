@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
+        let repo = Repository.instance(dict: ["name": "GHReleases", "owner": "RishabhTayal"])
+        UserDefaults.storeRepo(repository: repo)
+        
         return true
     }
     
