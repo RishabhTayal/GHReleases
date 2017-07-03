@@ -420,7 +420,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E97E5DC5102BB0B5A072AA1 /* Pods-GHReleases.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-debug";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = CEBY93VF85;
